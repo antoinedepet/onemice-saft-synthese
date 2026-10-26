@@ -644,6 +644,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
 .flow span{padding:8px 12px;border-radius:999px;background:var(--paper);border:1px solid var(--line);font-weight:600}
 .flow span.om{background:var(--orange-soft);border-color:#F8C9B8;color:var(--orange-text)}
 .flow i{font-style:normal;color:var(--steel)}
+.vcard .ph img.vp{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.vcard .ph .fl{z-index:1}
+.cmp img.cth{display:block;width:120px;aspect-ratio:16/10;object-fit:cover;border-radius:6px;margin-bottom:8px}
 </style>
 
 <header class="cover">
@@ -931,7 +934,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
       <div class="stepper" id="stepper"></div>
       <div class="screen" id="screen"></div>
       <div id="cartbar"></div>
-      <p class="fict">Lieux, prix, centres de coût et numéros fictifs, à titre d'illustration. Les seuils du feu tricolore sont des exemples à paramétrer avec vous.</p>
+      <p class="fict">Lieux, prix, centres de coût et numéros fictifs, à titre d'illustration. Photos d'illustration : Unsplash. Les seuils du feu tricolore sont des exemples à paramétrer avec vous.</p>
     </div>
     <div class="simhead row" style="margin-top:48px" id="ia"><span>Temps 2</span>Analyse de la donnée avec l'assistant IA<button type="button" class="btn btn-dark" id="replay"><span class="ms">replay</span>Rejouer la démonstration</button></div>
     <div class="app">
@@ -1104,17 +1107,18 @@ function scene(type,h){
   return `<svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice" aria-hidden="true">${b}</svg>`;
 }
 const V=[
- {id:1,name:'Domaine des Grands Chênes',city:'Amboise · Indre-et-Loire',s:10,pax:180,ch:72,note:'4.8',st:4,cc:true,eco:true,esat:true,fast:true,price:236,ac:true,train:'Paris-Montparnasse → Tours 1h + 20 min',scene:'domaine',h:205,inc:['Plénière et 3 sous-commissions','Pauses, déjeuner et dîner','Chambre single','Option team building solidaire (ESAT)']},
- {id:2,name:'Hôtel Les Remparts',city:'Tours · Indre-et-Loire',s:8,pax:160,ch:110,note:'4.6',st:4,cc:false,eco:false,esat:false,fast:true,price:198,ac:false,train:'Paris-Montparnasse → Tours 1h',scene:'ville',h:210,inc:['Plénière et 2 sous-commissions','Pauses et déjeuner','Chambre single','Wifi']},
- {id:3,name:'Château de Vaumoreau',city:'Blois · Loir-et-Cher',s:7,pax:120,ch:46,note:'4.9',st:5,cc:false,eco:true,esat:false,fast:false,price:328,ac:true,train:'Paris-Austerlitz → Blois 1h25',scene:'domaine',h:30,inc:['Plénière et 4 sous-commissions','Pension complète','Chambre single','Soirée privatisée']},
- {id:4,name:'Abbaye de Saint-Lys',city:'Chartres · Eure-et-Loir',s:6,pax:90,ch:50,note:'4.6',st:3,cc:false,eco:false,esat:true,fast:true,price:244,ac:true,train:'Paris-Montparnasse → Chartres 1h',scene:'restaurant',h:28,inc:['Salle plénière','Pauses par un traiteur ESAT','Déjeuner et dîner','Chambre single']},
- {id:5,name:'Campus des Bords de Loire',city:'Saumur · Maine-et-Loire',s:14,pax:280,ch:120,note:'4.5',st:3,cc:true,eco:true,esat:true,fast:false,price:184,ac:false,train:'Paris-Montparnasse → Saumur 1h45',scene:'pleniere',h:200,inc:['Plénière et 6 sous-commissions','Pension complète','Chambre single','Team building solidaire inclus']},
- {id:6,name:"Grand Hôtel de l'Orangerie",city:'Orléans · Loiret',s:9,pax:220,ch:130,note:'4.7',st:4,cc:false,eco:false,esat:false,fast:true,price:276,ac:true,train:'Paris-Austerlitz → Orléans 1h',scene:'pleniere',h:20,inc:['Plénière et 3 sous-commissions','Pension complète','Chambre single','Accès spa']},
- {id:7,name:'Le Clos Sainte-Vigne',city:'Vouvray · Indre-et-Loire',s:5,pax:70,ch:36,note:'4.9',st:5,cc:false,eco:true,esat:false,fast:false,price:352,ac:true,train:'Paris-Montparnasse → Tours 1h + 15 min',scene:'restaurant',h:12,inc:['Salle plénière','Pension complète, accords mets-vins','Chambre single','Visite de cave']},
- {id:8,name:'Manoir de la Brenne',city:'Loches · Indre-et-Loire',s:8,pax:110,ch:58,note:'4.8',st:4,cc:false,eco:true,esat:false,fast:true,price:252,ac:true,train:'Paris-Montparnasse → Tours 1h + 40 min',scene:'domaine',h:150,inc:['Plénière et 2 sous-commissions','Pauses, déjeuner et dîner','Chambre single','Activité nature encadrée']}
+ {id:1,ph:'1731166802422-a4d440b56a83',name:'Domaine des Grands Chênes',city:'Amboise · Indre-et-Loire',s:10,pax:180,ch:72,note:'4.8',st:4,cc:true,eco:true,esat:true,fast:true,price:236,ac:true,train:'Paris-Montparnasse → Tours 1h + 20 min',scene:'domaine',h:205,inc:['Plénière et 3 sous-commissions','Pauses, déjeuner et dîner','Chambre single','Option team building solidaire (ESAT)']},
+ {id:2,ph:'1614349214089-e969a07e033b',name:'Hôtel Les Remparts',city:'Tours · Indre-et-Loire',s:8,pax:160,ch:110,note:'4.6',st:4,cc:false,eco:false,esat:false,fast:true,price:198,ac:false,train:'Paris-Montparnasse → Tours 1h',scene:'ville',h:210,inc:['Plénière et 2 sous-commissions','Pauses et déjeuner','Chambre single','Wifi']},
+ {id:3,ph:'1705591928826-9126fc737d87',name:'Château de Vaumoreau',city:'Blois · Loir-et-Cher',s:7,pax:120,ch:46,note:'4.9',st:5,cc:false,eco:true,esat:false,fast:false,price:328,ac:true,train:'Paris-Austerlitz → Blois 1h25',scene:'domaine',h:30,inc:['Plénière et 4 sous-commissions','Pension complète','Chambre single','Soirée privatisée']},
+ {id:4,ph:'1705591930871-68ecb786773d',name:'Abbaye de Saint-Lys',city:'Chartres · Eure-et-Loir',s:6,pax:90,ch:50,note:'4.6',st:3,cc:false,eco:false,esat:true,fast:true,price:244,ac:true,train:'Paris-Montparnasse → Chartres 1h',scene:'restaurant',h:28,inc:['Salle plénière','Pauses par un traiteur ESAT','Déjeuner et dîner','Chambre single']},
+ {id:5,ph:'1587825140708-dfaf72ae4b04',name:'Campus des Bords de Loire',city:'Saumur · Maine-et-Loire',s:14,pax:280,ch:120,note:'4.5',st:3,cc:true,eco:true,esat:true,fast:false,price:184,ac:false,train:'Paris-Montparnasse → Saumur 1h45',scene:'pleniere',h:200,inc:['Plénière et 6 sous-commissions','Pension complète','Chambre single','Team building solidaire inclus']},
+ {id:6,ph:'1742844552193-2fd3425cd26d',name:"Grand Hôtel de l'Orangerie",city:'Orléans · Loiret',s:9,pax:220,ch:130,note:'4.7',st:4,cc:false,eco:false,esat:false,fast:true,price:276,ac:true,train:'Paris-Austerlitz → Orléans 1h',scene:'pleniere',h:20,inc:['Plénière et 3 sous-commissions','Pension complète','Chambre single','Accès spa']},
+ {id:7,ph:'1587895656140-88dc74ed96de',name:'Le Clos Sainte-Vigne',city:'Vouvray · Indre-et-Loire',s:5,pax:70,ch:36,note:'4.9',st:5,cc:false,eco:true,esat:false,fast:false,price:352,ac:true,train:'Paris-Montparnasse → Tours 1h + 15 min',scene:'restaurant',h:12,inc:['Salle plénière','Pension complète, accords mets-vins','Chambre single','Visite de cave']},
+ {id:8,ph:'1631295440864-d3ae10bba329',name:'Manoir de la Brenne',city:'Loches · Indre-et-Loire',s:8,pax:110,ch:58,note:'4.8',st:4,cc:false,eco:true,esat:false,fast:true,price:252,ac:true,train:'Paris-Montparnasse → Tours 1h + 40 min',scene:'domaine',h:150,inc:['Plénière et 2 sous-commissions','Pauses, déjeuner et dîner','Chambre single','Activité nature encadrée']}
 ];
 const FACT={1:.96,2:.98,3:.95,4:1,5:.97,6:.94,7:.99,8:.96};
-V.forEach(v=>v.img=scene(v.scene,v.h));
+const photo=(v,w,h)=>`https://images.unsplash.com/photo-${v.ph}?w=${w}&h=${h}&fit=crop&auto=format&q=70`;
+V.forEach(v=>v.img=scene(v.scene,v.h)+`<img class="vp" src="${photo(v,640,360)}" alt="${v.name}, photo d'illustration" loading="lazy" onerror="this.remove()">`);
 const S={scr:'brief',req:{type:'Séminaire résidentiel',pax:60,days:2,start:'2026-11-17',cc:'Marketing et Communication · CC 1100',pm:true},f:{eco:false,cc:false,esat:false,fast:false,sort:'reco',q:''},cart:[],chosen:null,appr:[],bc:null,booked:null};
 const STEPS=[['brief','La demande'],['search','La recherche'],['compare','La comparaison'],['validate','La validation']];
 const IDX={brief:0,search:1,compare:2,validate:3};
@@ -1199,7 +1203,7 @@ function rCompare(){
   const ems=$$('.rfq em');
   const show=()=>{
     $('#cmp').innerHTML=`<div class="tablewrap"><table class="cmp"><thead><tr><th>Lieu</th><th>Offre / pers. / jour</th><th>Total HT</th><th>Prestations incluses</th><th>Paiement</th><th>RSE</th><th>Feu</th><th></th></tr></thead><tbody>
-    ${offers.map(o=>`<tr><td><b>${o.v.name}</b><br><span style="font-size:13px;color:#6B7782">${o.v.city}${o.v.cc?' · contrat groupe':''}</span></td><td class="num"><s>${o.pub} € tarif public</s><b>${o.price} € HT</b></td><td class="num"><b>${eur(o.total)}</b></td><td><ul>${o.v.inc.map(x=>`<li>${x}</li>`).join('')}<li>Annulation sans frais jusqu'à J-${o.v.fast?15:21}</li></ul></td><td style="font-size:13.5px">${o.v.ac?'Acompte de 30 % avancé par OneMICE':'Sans acompte'}<br><span style="color:#2E7D55">Aucun fournisseur à créer</span></td><td style="font-size:13.5px">${[o.v.eco?'Certifié':'',o.v.esat?'Offre ESAT':''].filter(Boolean).join('<br>')||'·'}<br>≈ ${(0.11*S.req.pax*S.req.days*(o.v.eco?.85:1)).toFixed(1).replace('.',',')} t CO₂e</td><td><span class="lt"><i style="background:${LC[o.l]}"></i>${LT[o.l]}</span></td><td><button class="pbtn dark pick" type="button" data-pick="${o.v.id}">Choisir</button></td></tr>`).join('')}
+    ${offers.map(o=>`<tr><td><img class="cth" src="${photo(o.v,240,150)}" alt="" loading="lazy" onerror="this.remove()"><b>${o.v.name}</b><br><span style="font-size:13px;color:#6B7782">${o.v.city}${o.v.cc?' · contrat groupe':''}</span></td><td class="num"><s>${o.pub} € tarif public</s><b>${o.price} € HT</b></td><td class="num"><b>${eur(o.total)}</b></td><td><ul>${o.v.inc.map(x=>`<li>${x}</li>`).join('')}<li>Annulation sans frais jusqu'à J-${o.v.fast?15:21}</li></ul></td><td style="font-size:13.5px">${o.v.ac?'Acompte de 30 % avancé par OneMICE':'Sans acompte'}<br><span style="color:#2E7D55">Aucun fournisseur à créer</span></td><td style="font-size:13.5px">${[o.v.eco?'Certifié':'',o.v.esat?'Offre ESAT':''].filter(Boolean).join('<br>')||'·'}<br>≈ ${(0.11*S.req.pax*S.req.days*(o.v.eco?.85:1)).toFixed(1).replace('.',',')} t CO₂e</td><td><span class="lt"><i style="background:${LC[o.l]}"></i>${LT[o.l]}</span></td><td><button class="pbtn dark pick" type="button" data-pick="${o.v.id}">Choisir</button></td></tr>`).join('')}
     </tbody></table></div><p style="font:13.5px/1.45 var(--f);color:#6B7782;margin-top:12px">${offers.length<3?"Au-delà de 50 000 €, votre politique demande au moins trois offres : ajoutez des lieux pour une mise en concurrence complète. ":''}Chaque offre chiffre les mêmes postes. La consultation reste tracée et horodatée dans le dossier.</p>
     <div class="actions"><button class="pbtn" type="button" id="bBack2">Retour à la recherche</button></div>`;
     $$('[data-pick]').forEach(b=>b.onclick=()=>{ S.chosen=offerOf(V.find(v=>v.id===+b.dataset.pick)); S.appr=[]; S.bc=null; go('validate'); });
